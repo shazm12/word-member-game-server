@@ -1,11 +1,9 @@
-use std::{env, os::windows::process};
+use std::env;
 
 use actix_web::{
-    get,
     middleware::Logger,
-    post,
-    web::{self, route},
-    App, HttpResponse, HttpServer, Responder,
+    web::{self},
+    App, HttpServer,
 };
 use dotenv::dotenv;
 use env_logger::Env;
@@ -29,7 +27,7 @@ async fn main() -> std::io::Result<()> {
     let uri: String = env::var("MONGO_URI").unwrap_or_else(|_| "".into());
 
     if uri.is_empty() {
-        error!("Mogno URI cannot be empty");
+        error!("Mongo URI cannot be empty");
         std::process::exit(1);
     }
 
