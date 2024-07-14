@@ -15,6 +15,11 @@ mod controllers;
 mod models;
 mod routes;
 
+#[derive(Clone)]
+struct AppState {
+    mongo_client: Client,
+}
+
 #[actix_web::main]
 
 async fn main() -> std::io::Result<()> {
@@ -36,7 +41,9 @@ async fn main() -> std::io::Result<()> {
 
     let server = HttpServer::new(move || {
         App::new()
-            .app_data(web::Data::new(mongo_client.clone()))
+            .app_data(web::Data::new(AppState {
+                mongo_client: mongo_client.clone(),
+            }))
             .configure(routes::word_route::init)
             .wrap(Logger::default())
     })
