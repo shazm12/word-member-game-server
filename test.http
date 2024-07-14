@@ -1,7 +1,7 @@
-POST http://localhost:8080/word
+POST http://localhost:8080/word/create
 Content-Type: application/json
 
 {
-    "name": "Car",
-    "members": ["Engine","Brake","Speed"]
+    "name": "School",
+    "members": ["Books","Study","Exam"]
 }
