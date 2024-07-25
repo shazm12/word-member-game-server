@@ -4,4 +4,5 @@ use serde::{Deserialize, Serialize};
 pub struct Word {
     pub name: String,
     pub members: Vec<String>,
+    pub random : Option<i32>
 }
