@@ -1,7 +1,12 @@
+###
 POST http://localhost:8080/word/create
 Content-Type: application/json
 
 {
-    "name": "School",
-    "members": ["Books","Study","Exam"]
+    "name": "Phone",
+    "members": ["Message","Call","Camera"]
 }
+
+###
+GET http://localhost:8080/word/get
+Content-Type: application/json
